@@ -226,6 +226,20 @@ p { margin: 0; }
 .contact__list span { flex: 0 0 6.5rem; font-size: .68rem; font-weight: 500; letter-spacing: .26em; text-transform: uppercase; color: var(--rose-dark); }
 .contact__list a { text-decoration: none; border-bottom: 1px solid var(--line); overflow-wrap: anywhere; }
 .contact__list a:hover { color: var(--rose-dark); }
+.contact__buttons { display: flex; flex-wrap: wrap; gap: .7rem; padding-top: 1.4rem; border-top: 1px solid var(--line); }
+.contact__buttons:empty { display: none; }
+.chat-btn {
+  display: inline-flex; align-items: center; gap: .6rem;
+  padding: .7rem 1.2rem;
+  border: 1px solid var(--rose);
+  border-radius: 999px;
+  background: var(--cream);
+  color: var(--rose-dark);
+  font-size: .72rem; font-weight: 500; letter-spacing: .2em; text-transform: uppercase; text-decoration: none;
+  transition: background .25s, color .25s;
+}
+.chat-btn:hover { background: var(--rose); color: #fff; }
+.chat-btn svg { width: 18px; height: 18px; fill: none; stroke: currentColor; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
 
 .form { display: grid; gap: 1.2rem; padding: clamp(1.5rem, 4vw, 2.6rem); background: var(--cream); border: 1px solid var(--line); border-radius: 4px; }
 .form__row { display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem; }

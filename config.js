@@ -6,8 +6,9 @@ window.SITE = {
   contact: {
     email: "loveisontheline1@gmail.com",
     phone: "+389 75 996 077",
-    whatsapp: "",                      // digits only, with country code, e.g. "38970123456"
-    instagram: "",                     // handle without @, e.g. "loveisontheline"
+    whatsapp: "38975996077",           // digits only, with country code
+    viber: "38975996077",              // digits only, with country code
+    instagram: "loveisontheline_",     // handle without @
     area: ""                           // e.g. { mk: "Скопје и цела Македонија", en: "Skopje & all of Macedonia" }
   },
 

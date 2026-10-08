@@ -10,7 +10,7 @@
     mk: {
       openMenu: "Отвори мени", closeMenu: "Затвори мени",
       soon: "Фотографиите доаѓаат наскоро", photoAlt: "Фотографија од настан",
-      email: "Е-пошта", phone: "Телефон", whatsapp: "Пишете ни", area: "Регион",
+      email: "Е-пошта", phone: "Телефон", area: "Регион",
       nameMissing: "Ве молиме внесете го вашето име за да знаеме кому да одговориме.",
       sent: "Вашата апликација за е-пошта треба да се отвори. Само притиснете „Испрати“ и ќе ви се јавиме.",
       fName: "Име", fEvent: "Настан", fDate: "Датум", fVenue: "Локација / град",
@@ -19,7 +19,7 @@
     en: {
       openMenu: "Open menu", closeMenu: "Close menu",
       soon: "Photos coming soon", photoAlt: "Event photo",
-      email: "Email", phone: "Phone", whatsapp: "Message us", area: "Area",
+      email: "Email", phone: "Phone", area: "Area",
       nameMissing: "Please add your name so we know who to reply to.",
       sent: "Your email app should open now. Just press send and we'll be in touch.",
       fName: "Name", fEvent: "Event", fDate: "Date", fVenue: "Venue / city",
@@ -133,9 +133,28 @@
   };
   if (contact.email) addRow(t.email, contact.email, "mailto:" + contact.email);
   if (contact.phone) addRow(t.phone, contact.phone, "tel:" + contact.phone.replace(/[^\d+]/g, ""));
-  if (contact.whatsapp) addRow("WhatsApp", t.whatsapp, "https://wa.me/" + contact.whatsapp.replace(/\D/g, ""));
-  if (contact.instagram) addRow("Instagram", "@" + contact.instagram, "https://instagram.com/" + contact.instagram);
   if (pick(contact.area)) addRow(t.area, pick(contact.area));
+
+  // Messaging buttons
+  const buttons = $("contactButtons");
+  const handset = '<path d="M9.500 8.500c.3 3 2.700 5.500 5.800 5.800"/>';
+  const ICONS = {
+    whatsapp: '<path d="M12 3a9 9 0 0 0-7.700 13.600L3 21l4.600-1.200A9 9 0 1 0 12 3z"/>' + handset,
+    viber: '<path d="M7 3h10a4 4 0 0 1 4 4v6a4 4 0 0 1-4 4h-4l-4 4v-4H7a4 4 0 0 1-4-4V7a4 4 0 0 1 4-4z"/>' + handset,
+    instagram: '<rect x="3.500" y="3.500" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17" cy="7" r=".6"/>'
+  };
+  const addButton = (key, label, href) => {
+    const a = document.createElement("a");
+    a.className = "chat-btn";
+    a.href = href;
+    if (href.startsWith("http")) { a.target = "_blank"; a.rel = "noopener"; }
+    a.innerHTML = '<svg viewBox="0 0 24 24" aria-hidden="true">' + ICONS[key] + "</svg>";
+    a.appendChild(document.createTextNode(label));
+    buttons.appendChild(a);
+  };
+  if (contact.whatsapp) addButton("whatsapp", "WhatsApp", "https://wa.me/" + contact.whatsapp.replace(/\D/g, ""));
+  if (contact.viber) addButton("viber", "Viber", "viber://chat?number=%2B" + contact.viber.replace(/\D/g, ""));
+  if (contact.instagram) addButton("instagram", "Instagram", "https://www.instagram.com/" + contact.instagram);
 
   // ── Booking form → opens the visitor's email app ───────────
   const form = $("bookingForm"), note = $("formNote");

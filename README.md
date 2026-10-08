@@ -6,7 +6,7 @@ Static website for the audio guest book business. Macedonian is the default (`in
 
 Everything you normally change is in `config.js`.
 
-**Contact details** – fill in `email`, `phone`, `whatsapp`, `instagram`, `area`. Empty values are hidden.
+**Contact details** – fill in `email`, `phone`, `whatsapp`, `viber`, `instagram`, `area`. Empty values are hidden.
 
 **Gallery** – copy photos into `assets/gallery/`, then list them:
 
