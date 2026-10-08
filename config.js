@@ -4,8 +4,8 @@
 window.SITE = {
   // Contact details — leave a value empty ("") to hide it on the page.
   contact: {
-    email: "hello@example.com",        // TODO: your booking email
-    phone: "",                         // e.g. "+389 70 123 456"
+    email: "loveisontheline1@gmail.com",
+    phone: "+389 75 996 077",
     whatsapp: "",                      // digits only, with country code, e.g. "38970123456"
     instagram: "",                     // handle without @, e.g. "loveisontheline"
     area: ""                           // e.g. { mk: "Скопје и цела Македонија", en: "Skopje & all of Macedonia" }
